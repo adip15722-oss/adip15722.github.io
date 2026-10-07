@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AURA ESPORT Team FlashPeak</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #ffffff;
+            color: #111;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #f3cb51;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #111;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #ff0000;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            padding: 150px 8% 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .hero-text {
+            max-width: 650px;
+        }
+
+        .hero-text small {
+            font-size: 18px;
+            color: #white;
+            font-weight: bold;
+        }
+
+        .hero h1 {
+            font-size: clamp(50px, 8vw, 100px);
+            line-height: 0.95;
+            margin: 20px 0;
+        }
+
+        .hero h1 span {
+            color: #ff0000;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #555;
+            max-width: 550px;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 14px 28px;
+            background: #111;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: #ff0000;
+            transform: translateY(-3px);
+        }
+
+        .hero-shape {
+            width: 320px;
+            height: 320px;
+            background: #f3cb51;
+            border-radius: 50% 40% 60% 45%;
+            transform: rotate(-15deg);
+            animation: floating 4s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% {
+                transform: translateY(0) rotate(-15deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(-10deg);
+            }
+        }
+
+        /* SECTION */
+        section {
+            padding: 100px 8%;
+        }
+
+        .section-title {
+            margin-bottom: 50px;
+        }
+
+        .section-title small {
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .section-title h2 {
+            font-size: 50px;
+            margin-top: 10px;
+        }
+
+        /* ABOUT */
+        .about {
+            background: #111;
+            color: gold;
+        }
+
+        .about-content {
+            max-width: 800px;
+            font-size: 20px;
+            color: #ccc;
+        }
+
+        /* PORTFOLIO */
+        .portfolio {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .project {
+            height: 280px;
+            padding: 25px;
+            display: flex;
+            align-items: flex-end;
+            border-radius: 20px;
+            background: #ddd;
+            overflow: hidden;
+            position: relative;
+            transition: 0.4s;
+        }
+
+        .project:nth-child(1) {
+            background: linear-gradient(135deg, #ff0000, #f3cb51);
+        }
+
+        .project:nth-child(2) {
+            background: linear-gradient(135deg, #ff0000, #ffffff);
+            color: red;
+        }
+
+        .project:nth-child(3) {
+            background: linear-gradient(135deg, #ff6e00, #ffffff);
+        }
+
+        .project:nth-child(4) {
+            background: linear-gradient(135deg, #f3cb51, #ffffff);
+            color: red;
+        }
+
+        .project:nth-child(5) {
+            background: linear-gradient(135deg, #00ff00, #ffffff);
+        }
+
+        .project:nth-child(6) {
+            background: linear-gradient(135deg, #eee, #bbb);
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+        }
+
+        .project h3 {
+            font-size: 25px;
+        }
+
+        /* SKILLS */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .skill {
+            padding: 15px 25px;
+            border: 2px solid #111;
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            background: #111;
+            color: white;
+        }
+
+        /* CONTACT */
+        .contact {
+            background: #ff0000;
+            color: white;
+        }
+
+        .contact h2 {
+            font-size: 60px;
+            max-width: 700px;
+        }
+
+        .contact p {
+            margin-top: 15px;
+            font-size: 18px;
+        }
+
+        .contact .button {
+            background: red;
+            color: #111;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 30px 8%;
+            text-align: center;
+            background: #111;
+            color: #aaa;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 800px) {
+
+            nav {
+                padding: 15px 5%;
+            }
+
+            nav ul {
+                gap: 12px;
+                font-size: 13px;
+            }
+
+            .hero {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 130px 5% 70px;
+            }
+
+            .hero-shape {
+                width: 230px;
+                height: 230px;
+                align-self: center;
+            }
+
+            section {
+                padding: 70px 5%;
+            }
+
+            .section-title h2 {
+                font-size: 40px;
+            }
+
+            .portfolio {
+                grid-template-columns: 1fr;
+            }
+
+            .contact h2 {
+                font-size: 45px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="AuraEsport.png">AURA ESPORT<span>.</span></div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+
+        <div class="hero-text">
+
+            <small>BECOME A LEGEND • JOIN US</small>
+
+            <h1>
+                Team<br>
+                <span>AURA</span><br>
+                ESPORT.
+            </h1>
+
+            <p>
+Kami tidak hanya membangun sebuah skuad, kami membangun sebuah keluarga. Setiap kemenangan adalah hasil kerja sama, setiap kekalahan adalah pelajaran, dan setiap langkah adalah proses untuk berkembang bersama. Inilah Aura Esport.
+            </p>
+
+            <a href="#pendaftaran" class="button">
+                Lihat Portfolio →
+            </a>
+
+        </div>
+
+        <div class="hero-shape"></div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+
+        <div class="section-title">
+            <small>ABOUT US</small>
+            <h2>Team Work is<br>the Key.</h2>
+        </div>
+
+        <div class="about-content">
+            <p>
+Setiap pertandingan mengajarkan kami sesuatu. Setiap kekalahan membuat kami lebih kuat. Setiap kemenangan membuktikan bahwa kerja sama tidak pernah sia-sia. Kami adalah AURA ESPORT."United by the game, strengthened by teamwork, driven to grow".
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio">
+
+        <div class="section-title">
+            <small>PORTFOLIO</small>
+            <h2>Roster Aura</h2>
+        </div>
+
+        <div class="portfolio">
+
+            <div class="project">
+                <h3>Divisi 1</h3>
+            </div>
+
+            <div class="project">
+                <h3>Divisi 2</h3>
+            </div>
+
+            <div class="project">
+                <h3>Divisi 3</h3>
+            </div>
+
+            <div class="project">
+                <h3>Divisi 4</h3>
+            </div>
+
+            <div class="project">
+                <h3>Divisi 5</h3>
+            </div>
+
+            <div class="project">
+                <h3>Divisi6</h3>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+    <section>
+
+        <div class="section-title">
+            <small>SKILLS IMPROVE</small>
+            <h2>What can we Do?.</h2>
+        </div>
+
+        <div class="skills">
+
+            <div class="skill">TeamWorks</div>
+            <div class="skill">Skill Improvement</div>
+            <div class="skill">Communication</div>
+            <div class="skill">Game Sense</div>
+            <div class="skill">Mentality</div>
+            <div class="skill">Grow Together</div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+
+        <h2>
+            Come create your experience with us.
+        </h2>
+
+        <p>
+            Punya SKILLS dan ingin berkolaborasi?
+        </p>
+
+        <a href="mailto:emailkamu@gmail.com" class="button">
+            Hubungi Kami
+            0857 0555 7897
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            © 2026 AURA Esport. All Rights Reserved.
+        </p>
+
+    </footer>
+
+</body>
